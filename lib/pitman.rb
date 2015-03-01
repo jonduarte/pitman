@@ -7,11 +7,7 @@ class Pitman
   end
 
   def self.parse(file)
-    File.read(file)
-      .split("\n")
-      .select  { |str| str =~ /\(.+\)/ }
-      .collect { |str| str.split(" ").first }
-      .uniq
+    File.read(file).scan(/    ([^ \n]+)/).flatten.uniq
   end
 
   def self.used_gems(root)
