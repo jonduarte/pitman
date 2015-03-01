@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+require File.expand_path("../../lib/pitman", __FILE__)
+
+if ARGV.empty?
+  puts "Usage: pitman <DIR>"
+  exit
+end
+
+root = Pathname.new(ARGV.first)
+raise ArgumentError, "#{ARGV.first} must be a directory" unless root.directory?
+
+puts Pitman.collect(root)
