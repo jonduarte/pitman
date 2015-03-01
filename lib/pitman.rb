@@ -3,7 +3,7 @@ class Pitman
                     psych rake rdoc test-unit)
 
   def self.gems_list
-    `gem list`.split("\n").collect { |str| str.split(" (").first.strip }
+    `gem list`.split("\n").collect { |str| str.split(" ").first }
   end
 
   def self.parse(file)
