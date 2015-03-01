@@ -12,12 +12,12 @@ gem install pitman
 
 And then execute:
 
-    $ pitman <DIR>
+    $ pitman <DIR> # DIR must be the main directory where you place all your ruby projects.
 
 
-## Usage
+## TODO
 
-<DIR> should be the main directory where you place all your ruby projects.
+* Verify gems based on `ruby` version (because user could've multiple ruby versions, therefore the gem listing must respect the intended ruby version of that project).
 
 ## Contributing
 
