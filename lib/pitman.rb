@@ -29,8 +29,6 @@ class Pitman
 
   def self.collect(root)
     used = used_gems(root)
-    all  = gems_list
-
-    all - (used + DEFAULT_GEMS)
+    gems_list - (used + DEFAULT_GEMS)
   end
 end
