@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'pathname'
-require File.expand_path("../../lib/pitman", __FILE__)
+require File.expand_path("../lib/pitman", File.dirname(__FILE__))
 
 if ARGV.empty?
   puts "Usage: pitman <DIR>"
