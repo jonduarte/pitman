@@ -1,13 +1,14 @@
 class Pitman
+  GEM_PATTERN = /([^ ]+)\s+\(.*\)/
   DEFAULT_GEMS = %w(bigdecimal io-console json minitest
                     psych rake rdoc test-unit)
 
   def self.gems_list
-    `gem list`.split("\n").collect { |str| str.split(" ").first }
+    extract_gems(`gem list`)
   end
 
   def self.parse(file)
-    File.read(file).scan(/    ([^ \n]+)/).flatten.uniq
+    extract_gems(File.read(file))
   end
 
   def self.used_gems(root)
@@ -26,5 +27,9 @@ class Pitman
   def self.collect(root)
     used = used_gems(root)
     gems_list - (used + DEFAULT_GEMS)
+  end
+
+  def self.extract_gems(str)
+    str.scan(/\s*#{GEM_PATTERN}/).flatten.uniq
   end
 end
