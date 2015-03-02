@@ -1,5 +1,5 @@
 class Pitman
-  GEM_PATTERN = /([^ ]+)\s+\(.*\)/
+  GEM_PATTERN = /\s*([^ ]+)\s+\(.*\)/
   DEFAULT_GEMS = %w(bigdecimal io-console json minitest
                     psych rake rdoc test-unit)
 
@@ -30,6 +30,6 @@ class Pitman
   end
 
   def self.extract_gems(str)
-    str.scan(/\s*#{GEM_PATTERN}/).flatten.uniq
+    str.scan(GEM_PATTERN).flatten.uniq
   end
 end
